@@ -207,6 +207,9 @@ if ('ResizeObserver' in window) {
   resizeObserver.observe(canvasContainer);
 }
 
+function scrollLockCheck(){
+  console.log(document.getElementById('scrollCheck'))
+}
 
 /*
 // normal below
