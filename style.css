@@ -1,0 +1,295 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#cv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* places canvas behind other elements */
+}
+
+/* Using aspect-ratio so that the container maintains a 4:3 ratio */
+.canvas-wrapper {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #000; /* Fallback background if needed */
+}
+
+/* The canvas fills its container */
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#canvas:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+/* Body Styling */
+body {
+    font-family: "Pixelify Sans", serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    background-color: #000;
+    position: relative; /* Ensure the body is positioned */
+    z-index: 1;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin: 25px;
+    height: 100%;
+    width: 100%;
+    position: relative; /* Ensure .main is positioned correctly */
+    z-index: 2; /* Ensure .main is above canvas */
+}
+
+.inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.left-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border: 4px solid #fff;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 4px;
+    margin-right: 20px;
+    /* Removed min-width to allow more flexibility */
+    /* min-width: 250px; */
+    margin-bottom: 20px;
+}
+
+.left-inner a {
+    border: 4px solid #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.left-inner h2, h3 {
+    margin-bottom: 15px;
+}
+
+.left-inner h3 {
+    font-size: 25px;
+}
+
+.left-inner h2 {
+    font-size: 30px;
+}
+
+.left-inner a:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+    background-clip: text;
+    border: 3px solid #fff;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    animation: rainbow 3s linear infinite alternate;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+#current {
+    font-weight: bold;
+}
+
+.top-banner, .bottom-banner {
+    border: 4px solid #fff;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 4px;
+}
+
+.top-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #fff;
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.top-banner h2 {
+    font-size: 3vw;
+    text-align: center;
+    margin: 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.top-banner img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20%;
+    animation: spin 5s linear infinite;
+}
+
+.bottom-banner h2 {
+    font-size: 12px;
+    text-align: right;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+input {
+    padding-left: 10px;
+}
+
+/* Flexbox Grid for Cards */
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #fff;
+    /* Removed fixed min-width to allow the card to shrink */
+    /* min-width: 200px; */
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    /* Adjust flex properties for better responsiveness */
+    flex: 1 1 auto;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+#card1 {
+    position: relative; /* Establishes the positioning context */
+}
+
+#card1 img {
+    display: block;
+    width: 100%;
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+}
+
+#card1 img:hover {
+    filter: grayscale(0%);
+}
+
+/* The rest of your card image hover rules remain unchanged */
+#card2 img,
+#card3 img,
+#card4 img,
+#card5 img,
+#card6 img,
+#card7 img,
+#card8 img,
+#card9 img,
+#card10 img {
+    display: block;
+    width: 100%;
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+}
+
+#card2 img:hover,
+#card3 img:hover,
+#card4 img:hover,
+#card5 img:hover,
+#card6 img:hover,
+#card7 img:hover,
+#card8 img:hover,
+#card9 img:hover,
+#card10 img:hover {
+    filter: grayscale(0%);
+}
