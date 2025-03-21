@@ -1,2 +1,2 @@
-Personal website for random projects and occasional school projects
-feel free to look around
+Personal website for random projects and occasional school projects.
+Feel free to look around!
