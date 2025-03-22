@@ -3,7 +3,7 @@
 const canvasContainer = document.querySelector('.canvas-wrapper');
 const canvasElement = document.getElementById('canvas');
 const container = document.getElementById('canvas');
-console.log(container.clientWidth, container.clientHeight)
+//console.log(container.clientWidth, container.clientHeight)
 
 var elem = document.getElementById("canvas");
 function openFullscreen() {
@@ -209,6 +209,7 @@ if ('ResizeObserver' in window) {
 
 function scrollLockCheck(){
   const scrollCheck = document.getElementById('scrollCheck')
+  console.log(scrollCheck)
   if(scrollCheck.value){
     document.getElementById('main').style.position="fixed"
   } else {
