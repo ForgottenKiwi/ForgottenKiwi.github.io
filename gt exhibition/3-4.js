@@ -117,7 +117,7 @@ window.addEventListener('resize', () => {
 function scrollLockCheck(){
     const scrollCheck = document.getElementById('scrollCheck')
     console.log(scrollCheck.checked)
-    if(scrollCheck.value){
+    if(scrollCheck.checked){
       document.getElementById('main').style.position="fixed"
     } else {
       document.getElementById('main').style.position="relative"
