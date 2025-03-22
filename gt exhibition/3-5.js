@@ -210,7 +210,9 @@ if ('ResizeObserver' in window) {
 function scrollLockCheck(){
   const scrollCheck = document.getElementById('scrollCheck')
   if(scrollCheck.checked){
-    console.log(working);
+    document.getElementById('main').style.position="fixed"
+  } else {
+    document.getElementById('main').style.position="relative"
   }
 }
 
