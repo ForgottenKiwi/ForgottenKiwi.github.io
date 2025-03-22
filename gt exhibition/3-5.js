@@ -208,7 +208,10 @@ if ('ResizeObserver' in window) {
 }
 
 function scrollLockCheck(){
-  console.log(document.getElementById('scrollCheck'))
+  const scrollCheck = document.getElementById('scrollCheck')
+  if(scrollCheck.checked){
+    console.log(working);
+  }
 }
 
 /*
