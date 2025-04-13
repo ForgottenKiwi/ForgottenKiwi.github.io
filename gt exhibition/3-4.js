@@ -3,8 +3,14 @@ const canvasContainer = document.querySelector('.canvas-wrapper');
 const canvasElement = document.getElementById('canvas');
 const container = document.getElementById('canvas');
 
+let fullscreen = false;
+
 var elem = document.getElementById("canvas");
 function openFullscreen() {
+  fullscreen = true
+  renderer.setSize(100, 100);
+  camera.aspect = 100 / 100;
+  camera.updateProjectionMatrix();
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -12,10 +18,13 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
 }
+
+let text = "Total width/height: " + screen.width + "*" + screen.height + "<br>" +
+"Available width/height: " + screen.availWidth + "*" + screen.availHeight + "<br>" +
+"Color depth: " + screen.colorDepth + "<br>" +
+"Color resolution: " + screen.pixelDepth;
+console.log(text)
 
 // Create scene
 const scene = new THREE.Scene();
@@ -107,12 +116,31 @@ function animate() {
 }
 animate();
 
-// Resize handling
-window.addEventListener('resize', () => {
-    renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
-    camera.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight;
+if(fullscreen == false){
+  // Resize handling
+  window.addEventListener('resize', () => {
+    const width = canvasContainer.clientWidth;
+    const height = canvasContainer.clientHeight;
+    console.log("Window resize:", width, height);
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-});
+  });
+
+
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width, height } = entry.contentRect;
+        console.log("Resized:", width, height);
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+    });
+    resizeObserver.observe(canvasContainer);
+  }
+}
 
 function scrollLockCheck(){
     const scrollCheck = document.getElementById('scrollCheck')

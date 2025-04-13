@@ -5,8 +5,14 @@ const canvasElement = document.getElementById('canvas');
 const container = document.getElementById('canvas');
 //console.log(container.clientWidth, container.clientHeight)
 
+let fullscreen = false;
+
 var elem = document.getElementById("canvas");
 function openFullscreen() {
+  fullscreen = true
+  renderer.setSize(window.screen.width, window.screen.height);
+  camera.aspect = window.screen.width / window.screen.height;
+  camera.updateProjectionMatrix();
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -14,9 +20,6 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
 }
 
 
@@ -307,28 +310,30 @@ animate();
 // });
 
 
-// Resize handling
-window.addEventListener('resize', () => {
-  const width = canvasContainer.clientWidth;
-  const height = canvasContainer.clientHeight;
-  console.log("Window resize:", width, height);
-  renderer.setSize(width, height);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-});
-
-
-if ('ResizeObserver' in window) {
-  const resizeObserver = new ResizeObserver((entries) => {
-    for (let entry of entries) {
-      const { width, height } = entry.contentRect;
-      console.log("Resized:", width, height);
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    }
+if(fullscreen == false){
+  // Resize handling
+  window.addEventListener('resize', () => {
+    const width = canvasContainer.clientWidth;
+    const height = canvasContainer.clientHeight;
+    console.log("Window resize:", width, height);
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
   });
-  resizeObserver.observe(canvasContainer);
+
+
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width, height } = entry.contentRect;
+        console.log("Resized:", width, height);
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+    });
+    resizeObserver.observe(canvasContainer);
+  }
 }
 
 function scrollLockCheck(){

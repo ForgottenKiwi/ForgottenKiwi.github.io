@@ -299,3 +299,7 @@ input {
 #card10 img:hover {
   filter: grayscale(0%);
 }
+
+button {
+  color: #000;
+}
