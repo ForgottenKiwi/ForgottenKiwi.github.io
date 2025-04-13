@@ -17,7 +17,7 @@
 		<div class="main" id="main">
 			<div class="top-banner">
 			    <a href="../index.html"><img src="../photos/logo_black_and_white__1_-removebg-preview.png" alt="logo"></a>
-				<h2>Better Movement</h2>
+				<h2>Basic Terrain</h2>
 			</div>
 			<div class="inner">
 				<div class="left-inner">
@@ -53,13 +53,20 @@
 							<div class="row">
 								<!-- Card 1 -->
 								<div id="card1" class="card">
-									<h3>Better Movement</h3>
+									<h3>Basic Terrain</h3>
 									<div class="canvas-wrapper">
                     					<div id="canvas"></div>
                   					</div>
                   					<button onclick="openFullscreen();">View in Fullscreen</button>
-									<p>Same base as 3-4 but with much smoother movement. This one has jumping, crouching, and acceleration. It was a lot more of a challenge and there is still a few features missing like "real" gravity (currently its just not letting yPos go below zero) and possibly mouse controlled movement, though I'm unsure I will do that. Next is basic parkour and collision detection which I am quite scared of.</p>
-									<p>Controls: WASD for movement + left/right arrows for rotating</p>
+									<p>This one was about terrain generation. It uses perlin noise to set all these tiles to different heights. I tried a few different methods to get smooth gradients for terrain but I caved in and just used perlin noise because it was easy. Next I just need to make it so you can actually walk around and make it look decent.</p>
+									<p><strong>WASD for movement + left/right arrows for rotating</strong></p>
+                                    <br>
+                                    <h3>Work and Improvements</h3>
+                                    <p>Below is before I added anti-aliasing</p>
+                                    <img src= "../photos/Before anti aliasing.png">
+                                    <br>
+                                    <p>And here is after I added it</p>
+                                    <img src= "../photos/After anti aliasing.png">
 								</div>
 							</div>
 					    </div>

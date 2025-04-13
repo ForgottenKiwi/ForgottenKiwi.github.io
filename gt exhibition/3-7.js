@@ -20,13 +20,14 @@ function openFullscreen() {
 }
 
 
+
 // Create scene
 const scene = new THREE.Scene();
 
 // Create camera
 const camera = new THREE.PerspectiveCamera(
   75,
-  window.innerWidth / window.innerHeight,
+  canvasContainer.offsetWidth / canvasContainer.offsetHeight,
   0.1,
   100000
 );
@@ -34,10 +35,10 @@ camera.position.set(0, 2, 0);
 
 // Create renderer and enable shadows
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Optional: smoother shadows
-document.body.appendChild(renderer.domElement);
+container.appendChild(renderer.domElement);
 
 // Create a cube (for testing)
 const cubeGeometry = new THREE.BoxGeometry();
@@ -298,12 +299,12 @@ function animate() {
 }
 animate();
 
-// Resize handling
-window.addEventListener("resize", () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-});
+// // Resize handling
+// window.addEventListener("resize", () => {
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+//   camera.aspect = window.innerWidth / window.innerHeight;
+//   camera.updateProjectionMatrix();
+// });
 
 
 // Resize handling
@@ -336,5 +337,14 @@ function scrollLockCheck(){
     document.getElementById('main').style.position="fixed"
   } else {
     document.getElementById('main').style.position="relative"
+  }
+}
+
+function wireframeCheck(){
+  const wireCheck = document.getElementById('wireCheck')
+  if(wireCheck.checked){
+    materialE.wireframe = true;
+  } else {
+    materialE.wireframe = false;
   }
 }
