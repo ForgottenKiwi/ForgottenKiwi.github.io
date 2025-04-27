@@ -13,6 +13,13 @@ body {
   z-index: -1; /* places canvas behind other elements */
 }
 
+.coral-pixels-regular {
+  font-family: "Coral Pixels", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 /* Using aspect-ratio so that the container maintains a 4:3 ratio */
 .canvas-wrapper {
   width: 100%;
@@ -44,7 +51,7 @@ body {
 
 /* Body Styling */
 body {
-  font-family: "Pixelify Sans", serif;
+  font-family: "Coral Pixels", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
