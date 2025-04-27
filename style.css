@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'PixelAway';
+  src: url(fs-a-pixel-away.ttf);
+}
+
 html,
 body {
   height: 100%;
@@ -13,11 +18,11 @@ body {
   z-index: -1; /* places canvas behind other elements */
 }
 
-.coral-pixels-regular {
+/* .coral-pixels-regular {
   font-family: "Coral Pixels", serif;
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 
 /* Using aspect-ratio so that the container maintains a 4:3 ratio */
@@ -51,7 +56,7 @@ body {
 
 /* Body Styling */
 body {
-  font-family: "Coral Pixels", serif;
+  font-family: "PixelAway", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
