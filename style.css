@@ -1,6 +1,21 @@
 @font-face {
   font-family: 'PixelAway';
-  src: url(fs-a-pixel-away.ttf);
+  src: url(fonts/fs-a-pixel-away.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'AeogoPixellated';
+  src: url(fonts/AeogoPixellated-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'CoralPixels';
+  src: url(fonts/CoralPixels-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'PixelatedElegance';
+  src: url(fonts/PixelatedElegance.ttf) format('truetype');
 }
 
 html,
@@ -56,7 +71,7 @@ body {
 
 /* Body Styling */
 body {
-  font-family: "PixelAway", serif;
+  font-family: "CoralPixels", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
