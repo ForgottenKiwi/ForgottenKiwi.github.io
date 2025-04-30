@@ -39,6 +39,11 @@ body {
   font-style: normal;
 } */
 
+h2, h3 {
+  font-family: "PixelAway", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* Using aspect-ratio so that the container maintains a 4:3 ratio */
 .canvas-wrapper {

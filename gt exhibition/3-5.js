@@ -210,17 +210,16 @@ if(fullscreen == false){
     });
     resizeObserver.observe(canvasContainer);
   }
-
-  function scrollLockCheck(){
-    const scrollCheck = document.getElementById('scrollCheck')
-    if(scrollCheck.checked){
-      document.getElementById('main').style.position="fixed"
-    } else {
-      document.getElementById('main').style.position="relative"
-    }
-  }
 }
 
+function scrollLockCheck(){
+  const scrollCheck = document.getElementById('scrollCheck')
+  if(scrollCheck.checked){
+    document.getElementById('main').style.position="fixed"
+  } else {
+    document.getElementById('main').style.position="relative"
+  }
+}
 
 /*
 // normal below
