@@ -4,28 +4,13 @@
 }
 
 @font-face {
-  font-family: 'AeogoPixellated';
-  src: url(fonts/AeogoPixellated-Regular.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'CoralPixels';
-  src: url(fonts/CoralPixels-Regular.ttf) format('truetype');
-}
-
-@font-face {
   font-family: 'PixelatedElegance';
   src: url(fonts/PixelatedElegance.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: 'MedodicaRegular';
-  src: url(fonts/MedodicaRegular.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'EXEPixelPerfect';
-  src: url(fonts/EXEPixelPerfect.ttf) format('truetype');
+  font-family: 'HydrophiliaIced-Regular';
+  src: url(fonts/HydrophiliaIced-Regular.ttf) format('truetype');
 }
 
 html,
@@ -86,7 +71,7 @@ h2, h3 {
 
 /* Body Styling */
 body {
-  font-family: "EXEPixelPerfect", serif;
+  font-family: "HydrophiliaIced-Regular", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
@@ -252,7 +237,6 @@ h3 {
 
 .gallery h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
 }
 
 input {
@@ -301,7 +285,7 @@ input {
 
 .card p {
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   color: #fff;
 }
 
