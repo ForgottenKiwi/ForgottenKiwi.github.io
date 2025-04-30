@@ -23,6 +23,11 @@
   src: url(fonts/MedodicaRegular.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'EXEPixelPerfect';
+  src: url(fonts/EXEPixelPerfect.ttf) format('truetype');
+}
+
 html,
 body {
   height: 100%;
@@ -81,7 +86,7 @@ h2, h3 {
 
 /* Body Styling */
 body {
-  font-family: "MedodicaRegular", serif;
+  font-family: "EXEPixelPerfect", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
