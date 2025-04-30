@@ -18,6 +18,11 @@
   src: url(fonts/PixelatedElegance.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'MedodicaRegular';
+  src: url(fonts/MedodicaRegular.otf) format('opentype');
+}
+
 html,
 body {
   height: 100%;
@@ -76,7 +81,7 @@ h2, h3 {
 
 /* Body Styling */
 body {
-  font-family: "PixelatedElegance", serif;
+  font-family: "MedodicaRegular", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
