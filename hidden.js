@@ -125,10 +125,16 @@ function updateCameraMovement(delta) {
   }
 }
 
+function colorShift(i){
+  if(i % 2) {
+    return 0.3
+  }
+}
+
 // --- Terrain ---
-const width = 10000;
-const length = 10000;
-const segments = 1000;
+const width = 5000;
+const length = 5000;
+const segments = 2000;
 const geometryE = new THREE.PlaneGeometry(width, length, segments, segments);
 const materialE = new THREE.MeshStandardMaterial({ vertexColors: true });
 const plane = new THREE.Mesh(geometryE, materialE);
@@ -168,11 +174,12 @@ function plateauify(value, k = 0.02, range = 10) {
 }
 for (let i = 0; i < vertices.length; i += 3) {
   const x = vertices[i], y = vertices[i + 1];
-  const noise = plateauify(perlin(x * 0.001, y * 0.001) * 500) +
-                perlin(x * 0.01, y * 0.01) * 10 +
-                perlin(x * 0.0005, y * 0.0005) * 1000 + 200 +
-                perlin(x * 0.01, y * 0.01);
+  const noise = plateauify(perlin(x * 0.001, y * 0.001) * 5) +
+                perlin(x * 0.01, y * 0.01) +
+                perlin(x * 0.0005, y * 0.0005) +
+                perlin(x * 0.01, y * 0.01) + 10; // so there is a little less water
   vertices[i + 2] = noise;
+  colors[i] = (noise / 75 + 0.6) + 0.1 +  colorShift(i);
   colors[i + 1] = (noise / 75 + 0.6) - 0.1;
   colors[i + 2] = -noise / 75 + 0.6;
 }
