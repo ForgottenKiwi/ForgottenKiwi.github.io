@@ -178,10 +178,13 @@ for (let i = 0; i < vertices.length; i += 3) {
                 perlin(x * 0.01, y * 0.01) +
                 perlin(x * 0.0005, y * 0.0005) +
                 perlin(x * 0.01, y * 0.01) + 10; // so there is a little less water
-  vertices[i + 2] = noise;
-  colors[i] = (noise / 75 + 0.6) +  colorShift(i);
-  colors[i + 1] = (noise / 75 + 0.6) - 0.1;
-  colors[i + 2] = -noise / 75 + 0.6;
+  vertices[i + 2] = noise;;
+  colors[i + 1] = (noise / 5 + 0.6);
+  colors[i + 2] = -noise / 5 + 0.6;
+  if (i%2 == 1){
+    colors[i + 1] = (noise / 5 + 0.3;
+    colors[i + 2] = -noise / 5 + 0.3;
+  }
 }
 geometryE.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 geometryE.attributes.position.needsUpdate = true;
