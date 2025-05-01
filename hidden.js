@@ -178,7 +178,7 @@ for (let i = 0; i < vertices.length; i += 3) {
                 perlin(x * 0.01, y * 0.01) +
                 perlin(x * 0.0005, y * 0.0005) +
                 perlin(x * 0.01, y * 0.01) + 10; // so there is a little less water
-  vertices[i + 2] = noise;;
+  vertices[i + 2] = noise;
   colors[i + 1] = (noise / 5 + 0.6);
   colors[i + 2] = -noise / 5 + 0.6;
   if (i%2 == 1){
