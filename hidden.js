@@ -182,7 +182,7 @@ for (let i = 0; i < vertices.length; i += 3) {
   colors[i + 1] = (noise / 5 + 0.6);
   colors[i + 2] = -noise / 5 + 0.6;
   if (i%2 == 1){
-    colors[i + 1] = (noise / 5 + 0.3;
+    colors[i + 1] = (noise / 5 + 0.3);
     colors[i + 2] = -noise / 5 + 0.3;
   }
 }
