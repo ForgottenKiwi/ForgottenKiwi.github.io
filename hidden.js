@@ -174,12 +174,12 @@ function plateauify(value, k = 0.02, range = 10) {
 }
 for (let i = 0; i < vertices.length; i += 3) {
   const x = vertices[i], y = vertices[i + 1];
-  const noise = plateauify(perlin(x * 0.001, y * 0.001) * 5) +
+  const noise = plateauify(perlin(x * 0.001, y * 0.001) * 10) +
                 perlin(x * 0.01, y * 0.01) +
                 perlin(x * 0.0005, y * 0.0005) +
                 perlin(x * 0.01, y * 0.01) + 10; // so there is a little less water
   vertices[i + 2] = noise;
-  colors[i] = (noise / 75 + 0.6) + 0.1 +  colorShift(i);
+  colors[i] = (noise / 75 + 0.6) +  colorShift(i);
   colors[i + 1] = (noise / 75 + 0.6) - 0.1;
   colors[i + 2] = -noise / 75 + 0.6;
 }
@@ -211,7 +211,7 @@ planeW.receiveShadow = true;
 scene.add(planeW);
 
 // --- Lighting ---
-scene.add(new THREE.AmbientLight(0x72b3b5, 0.2));
+scene.add(new THREE.AmbientLight(0x72b3b5, 0.5));
 const dirLight = new THREE.DirectionalLight(0xffee00, 1);
 dirLight.position.set(5000, 2000, 5000);
 dirLight.castShadow = true;
@@ -231,7 +231,7 @@ scene.fog = new THREE.FogExp2(0xbae6ff, 0.00035);
 
 // --- Enemies and Bullets ---
 const enemies = [], bullets = [];
-const bulletSpeed = 500, enemySpeed = 25, numEnemies = 5;
+const bulletSpeed = 300, enemySpeed = 25, numEnemies = 5;
 
 function shootBullet() {
   const geo = new THREE.SphereGeometry(0.5, 8, 8);
@@ -246,7 +246,7 @@ function shootBullet() {
 function spawnEnemies() {
   enemies.length = 0;
   for (let i = 0; i < numEnemies; i++) {
-    const enemy = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
+    const enemy = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
     enemy.castShadow = true;
     enemy.receiveShadow = true;
     scene.add(enemy);
@@ -290,7 +290,7 @@ function updateBullets(delta) {
 
     // Collision detection with enemies
     for (const enemy of enemies) {
-      if (b.position.distanceTo(enemy.position) < 2) {
+      if (b.position.distanceTo(enemy.position) < 4) {
         enemy.position.copy(enemy.originalPosition); // Reset to spawn
         b.position.set(9999, 9999, 9999); // Move bullet out of range
         break;
