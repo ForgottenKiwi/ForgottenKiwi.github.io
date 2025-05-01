@@ -29,7 +29,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 2, 0);
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -179,8 +179,8 @@ for (let i = 0; i < vertices.length; i += 3) {
                 perlin(x * 0.0005, y * 0.0005) +
                 perlin(x * 0.01, y * 0.01) + 10; // so there is a little less water
   vertices[i + 2] = noise;
-  colors[i + 1] = (noise / 5 + 0.6) + Math.random();
-  colors[i + 2] = -noise / 5 + 0.6 + Math.random();
+  colors[i + 1] = (noise / 5 + 0.5) + Math.random()/2;
+  colors[i + 2] = -noise / 5 + 0.5 + Math.random()/2;
 }
 geometryE.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 geometryE.attributes.position.needsUpdate = true;
