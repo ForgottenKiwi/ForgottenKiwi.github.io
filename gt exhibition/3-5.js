@@ -32,7 +32,7 @@ camera.position.z = 5;
 camera.position.y = 2;
 
 // Create renderer
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
 container.appendChild(renderer.domElement);
 
