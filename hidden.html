@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Tiny5&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	</head>
+	<body>
+		<!-- Navigation Bar 
+    <nav class="navbar"><div class="container"><h1 class="logo">Art Portfolio</h1><ul class="nav-links"><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+  -->
+		<!-- Main Content -->
+		<div class="main" id="main">
+			<div class="top-banner">
+			    <a href="../index.html"><img src="../photos/logo_black_and_white__1_-removebg-preview.png" alt="logo"></a>
+				<h2>pew pew</h2>
+			</div>
+			<div class="inner">
+				<div class="left-inner">
+					<h2>Quick Links</h2>
+					<a href="../index.html">Portfolio</a>
+					<a href="../about.html">About Me</a>
+					
+					<h2>Settings -</h2>
+					<a><p>Scroll lock - <input type="checkbox" value="false" onclick="scrollLockCheck()" id="scrollCheck"></p></a>
+					
+					<h2>Individual Pages -</h2>
+					<h4>GT Exhibition</h4>
+					<a href="threejs3-4.html">Three.js 3-4</a>
+					<a href="threejs3-5.html" id="current">Three.js 3-5 - Current</a>
+					<a href="threejs3-6.html">Three.js 3-6</a>
+                    <a href="threejs3-7.html">Three.js 3-7</a>
+					<h4>Graphic Design</h4>
+					<a href="../graphic design/florida.html">Florida Postcard</a>
+					<a href="../graphic design/wisconsin.html">Wisconsin Postcard</a>
+					<a href="../graphic design/paint.html">Poured Paint Ornament Flyer</a>
+					<a href="../graphic design/trash.html">Trash Panda Menu</a>
+					<a href="../graphic design/split.html">Split Complementary Seal</a>
+					<a href="../graphic design/gt.html">GT Exhibition Flyer</a>
+					<a href="../graphic design/mono.html">Monochromatic Seal</a>
+					<a href="../graphic design/orch.html">Orchestra Program Cover</a>
+					<a href="../graphic design/game.html">Game Night Flyer</a>
+					<h4>Misc. Pages</h4>
+					<a href="../credits.html">Credits</a>
+					<a href="../contact.html">Contact</a>
+				</div>
+				<div class="wrapper">
+					<section id="gallery" class="gallery">
+						<div class="gallery-grid">
+							<div class="row">
+								<!-- Card 1 -->
+								<div id="card1" class="card">
+									<h3>pew pew</h3>
+									<div class="canvas-wrapper">
+                    					<div id="canvas"></div>
+                  					</div>
+                  					<button onclick="openFullscreen();">View in Fullscreen</button>
+									<p>Same base as 3-4 but with much smoother movement. This one has jumping, crouching, and acceleration. It was a lot more of a challenge and there is still a few features missing like "real" gravity (currently its just not letting yPos go below zero) and possibly mouse controlled movement, though I'm unsure I will do that. Next is basic parkour and collision detection which I am quite scared of.</p>
+									<p>Controls: WASD for movement + left/right arrows for rotating + space for jump + left shift for crouch + up arrow for shoot + down arrow for dash</p>
+								</div>
+							</div>
+					    </div>
+				    </section>
+				</div>
+			</div>
+			<div class="bottom-banner">
+				<h2>By bananaMoonTea</h2>
+				<h2>GT Exhibition Project 2025</h2>
+			</div>
+		</div>
+		
+		
+		<script src="hidden.js"></script>
+	</body>
+</html>
