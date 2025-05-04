@@ -174,11 +174,11 @@ function plateauify(value, k = 0.02, range = 10) {
 }
 for (let i = 0; i < vertices.length; i += 3) {
   const x = vertices[i], y = vertices[i + 1];
-  const noise = plateauify(perlin(x * 0.001, y * 0.001) * 100) +
-                perlin(x * 0.01, y * 0.01) +
-                perlin(x * 0.0005, y * 0.0005) * 10 +
-                perlin(x * 0.01, y * 0.01) * 10 + 10; // so there is a little less water
-  vertices[i + 2] = noise;
+  const noiseValueP = perlin(x * 0.001, y * 0.001) * 500;
+  const noiseValueD = perlin(x * 0.01, y * 0.01) * 10;
+  const noiseValueM = perlin(x * 0.0005, y * 0.0005) * 1000 + 200;
+  const noiseValueSD = perlin(x * 0.01, y * 0.01) * 1;
+  vertices[i + 2] = plateauify(noiseValueP) + noiseValueD + noiseValueM + noiseValueSD;
   colors[i + 1] =  0.5 + Math.random()/2;
 }
 geometryE.setAttribute('color', new THREE.BufferAttribute(colors, 3));
