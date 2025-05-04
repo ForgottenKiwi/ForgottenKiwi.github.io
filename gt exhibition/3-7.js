@@ -193,7 +193,7 @@ for (let i = 0; i < vertices.length; i += 3) {
   const noiseValueM = perlin(x * 0.0005, y * 0.0005) * 1000 + 200;
   const noiseValueSD = perlin(x * 0.01, y * 0.01) * 1;
   vertices[i + 2] = plateauify(noiseValueP) + noiseValueD + noiseValueM + noiseValueSD;
-  colors[i + 1] = (vertices[i + 2] / 75 + 0.6)-0.1;
+  colors[i + 1] = (vertices[i + 2] / 150 + Math.random()/2);
   colors[i + 2] = -vertices[i + 2] / 75 + 0.6
 }
 geometryE.setAttribute('color', new THREE.BufferAttribute(colors, 3));
